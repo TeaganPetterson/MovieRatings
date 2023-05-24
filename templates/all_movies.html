@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}All Movies{% endblock %}
+
+{% block body %}
+{% for movie in movies %}
+<ul> 
+<a href="/movieDetails/{{movie.movie_id}}"> 
+	{{ movie.title }} </a>
+<!-- Description: {{ movie.overview }}
+<img src="{{ movie.poster_path }}" height="200"/> -->
+</ul>
+{% endfor %}
+{% endblock %}
