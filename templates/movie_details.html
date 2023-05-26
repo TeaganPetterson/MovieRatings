@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 
 {% block title %}{{ movie.title }} - Details{% endblock %}
-
+{% block head %}
+{% endblock %}
 {% block body %}
 <h1>{{ movie.title }}</h1>
+<h2 id="rating"></h2>
 
+<form action="/ratings" method="POST" id="score_form">
+  <label for="score">Score this movie between 1 and 5 stars</label>
+  <input type="number" id="score" name="score" min="1" max="5">
+  <input type="hidden" id="movie_id" name="movie_id" value="{{movie_id}}">
+  <input type="submit" value="Submit">
+</form>
 <p>
   {{ movie.overview }}
 </p>
 
 <img src="{{ movie.poster_path }}">
+<script src="/static/movies.js"></script>
 {% endblock %}

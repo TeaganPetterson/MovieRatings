@@ -32,13 +32,14 @@ def get_movie_by_id(movie_id):
     movie = Movie.query.get(movie_id)
     return movie
 
-def create_rating(score, user, movie):
+def create_rating(score, user_id, movie_id):
     """Create a new rating"""
-
-    rating = Rating(score=score, user=user, movie=movie)
-
+    rating = Rating(score=score, user_id=user_id, movie_id=movie_id)
     return rating
 
+def get_user_by_email(email):
+    
+    return User.query.filter(User.email == email).first()
 
 if __name__ == '__main__':
     from server import app

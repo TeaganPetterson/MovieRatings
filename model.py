@@ -40,8 +40,8 @@ class Movie(db.Model):
         return f'<Movie movie_id={self.movie_id} title={self.title} overview={self.overview}>'
     
 class Rating(db.Model):
+    print("rating")
     """A rating."""
-
     __tablename__ = "ratings"
 
     rating_id = db.Column(db.Integer,
@@ -57,7 +57,7 @@ class Rating(db.Model):
     def __repr__(self):
         return f'<User rating_id={self.rating_id} score={self.score}>'
 
-def connect_to_db(flask_app, db_uri="postgresql:///ratings", echo=True):
+def connect_to_db(flask_app, db_uri="postgresql:///ratings", echo=False):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = echo
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
